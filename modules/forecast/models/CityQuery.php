@@ -1,0 +1,39 @@
+<?php
+
+namespace app\modules\forecast\models;
+
+/**
+ * This is the ActiveQuery class for [[City]].
+ *
+ * @see City
+ */
+class CityQuery extends \yii\db\ActiveQuery
+{
+    /*public function active()
+    {
+        return $this->andWhere('[[status]]=1');
+    }*/
+
+    public function inNames($names)
+    {
+        return $this->andWhere(['name' => $names]);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return City[]|array
+     */
+    public function all($db = null)
+    {
+        return parent::all($db);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return City|array|null
+     */
+    public function one($db = null)
+    {
+        return parent::one($db);
+    }
+}
